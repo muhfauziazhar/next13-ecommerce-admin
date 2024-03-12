@@ -14,6 +14,8 @@ interface ImageUploadProps {
   value: string[];
 }
 
+const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
+
 const ImageUpload: React.FC<ImageUploadProps> = ({
   disabled,
   onChange,
@@ -53,7 +55,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
           </div>
         ))}
       </div>
-      <CldUploadWidget onUpload={onUpload} uploadPreset="t4drjppf">
+      <CldUploadWidget onUpload={onUpload} uploadPreset={uploadPreset}>
         {({ open }) => {
           const onClick = () => {
             open();

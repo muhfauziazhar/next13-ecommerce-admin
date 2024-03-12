@@ -35,7 +35,7 @@ export default function StoreSwitcher({ className, items = [] }: StoreSwitcherPr
 
   const formattedItems = items.map((item) => ({
     label: item.name,
-    value: item.id
+    value: item.slug
   }));
 
   const currentStore = formattedItems.find((item) => item.value === params.storeId);
@@ -90,19 +90,6 @@ export default function StoreSwitcher({ className, items = [] }: StoreSwitcherPr
             </CommandGroup>
           </CommandList>
           <CommandSeparator />
-          <CommandList>
-            <CommandGroup>
-              <CommandItem
-                onSelect={() => {
-                  setOpen(false)
-                  storeModal.onOpen()
-                }}
-              >
-                <PlusCircle className="mr-2 h-5 w-5" />
-                Create Store
-              </CommandItem>
-            </CommandGroup>
-          </CommandList>
         </Command>
       </PopoverContent>
     </Popover>

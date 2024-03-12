@@ -23,6 +23,7 @@ export async function POST(
     const store = await prismadb.store.create({
       data: {
         name,
+        slug: name.toLowerCase().replace(/ /g, '-'),
         userId,
       }
     });
